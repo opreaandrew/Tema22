@@ -1,16 +1,17 @@
 package ro.fasttrackit.Tema22.model;
 
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
+import lombok.experimental.FieldNameConstants;
 
 import java.util.List;
 
 import static jakarta.persistence.GenerationType.*;
 
 @Entity
-@Data
+@Getter
+@Setter
+@FieldNameConstants
 @AllArgsConstructor
 @NoArgsConstructor
 public class Movie {
@@ -19,16 +20,18 @@ public class Movie {
     @GeneratedValue(strategy = IDENTITY)
     private long id;
     private String name;
-    private int year;
+    private Integer releaseDate;
 
-    @OneToOne(mappedBy = "movie", cascade = CascadeType.ALL)
+    @OneToOne(mappedBy = MovieRating.Fields.movie, cascade = CascadeType.ALL)
     private MovieRating movieRating;
 
-    @OneToMany(mappedBy = "movie", cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = Review.Fields.movie, cascade = CascadeType.ALL)
     private List<Review> reviews;
 
     @ManyToOne
+    @JoinColumn(name = "studio_id")
     private Studio studio;
+
     @ManyToMany
     private List<Actor> actors;
 

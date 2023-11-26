@@ -1,24 +1,25 @@
 package ro.fasttrackit.Tema22.model;
 
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
+import lombok.experimental.FieldNameConstants;
 
 import java.util.List;
 
 @Entity
-@Data
+@Getter
+@Setter
+@FieldNameConstants
 @AllArgsConstructor
 @NoArgsConstructor
 public class Actor {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer id;
+    private long id;
     private String name;
     private Integer birthYear;
 
-    @ManyToMany
+    @ManyToMany(mappedBy = "actors")
     private List<Movie> movies;
 }
