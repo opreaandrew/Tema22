@@ -22,7 +22,7 @@ public class Movie {
     private String name;
     private Integer releaseDate;
 
-    @OneToOne(mappedBy = MovieRating.Fields.movie, cascade = CascadeType.ALL)
+    @OneToOne(cascade = CascadeType.ALL)
     private MovieRating movieRating;
 
     @OneToMany(mappedBy = Review.Fields.movie, cascade = CascadeType.ALL)

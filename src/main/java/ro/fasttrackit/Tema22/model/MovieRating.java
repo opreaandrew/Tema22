@@ -17,6 +17,6 @@ public class MovieRating {
     private int rating;
     private String agency;
 
-    @OneToOne
+    @OneToOne(mappedBy = Movie.Fields.movieRating)
     private Movie movie;
 }
