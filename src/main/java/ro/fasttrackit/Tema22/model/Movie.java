@@ -1,12 +1,16 @@
 package ro.fasttrackit.Tema22.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
-import lombok.*;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 import lombok.experimental.FieldNameConstants;
 
 import java.util.List;
 
-import static jakarta.persistence.GenerationType.*;
+import static jakarta.persistence.GenerationType.IDENTITY;
 
 @Entity
 @Getter
@@ -22,16 +26,20 @@ public class Movie {
     private String name;
     private Integer releaseDate;
 
+    @JsonIgnore
     @OneToOne(cascade = CascadeType.ALL)
     private MovieRating movieRating;
 
+    @JsonIgnore
     @OneToMany(mappedBy = Review.Fields.movie, cascade = CascadeType.ALL)
     private List<Review> reviews;
 
+    @JsonIgnore
     @ManyToOne
     @JoinColumn(name = "studio_id")
     private Studio studio;
 
+    @JsonIgnore
     @ManyToMany
     private List<Actor> actors;
 

@@ -17,10 +17,15 @@ public class Tema22Application {
 INSERT INTO Studio (name, address) VALUES ('Warner Bros.', 'Hollywood, CA');
 INSERT INTO Studio (name, address) VALUES ('Paramount Pictures', 'Los Angeles, CA');
 
+-- Insert movie ratings
+INSERT INTO MOVIE_RATING (rating, agency) VALUES (5, 'IMDb');
+INSERT INTO MOVIE_RATING (rating, agency) VALUES (4, 'Rotten Tomatoes');
+INSERT INTO MOVIE_RATING (rating, agency) VALUES (5, 'IMDb');
+
 -- Insert movies
-INSERT INTO Movie (name, RELEASE_DATE, STUDIO_ID) VALUES ('Forrest Gump', 1994, 1);
-INSERT INTO Movie (name, RELEASE_DATE, STUDIO_ID) VALUES ('The Matrix', 1999, 2);
-INSERT INTO Movie (name, RELEASE_DATE, STUDIO_ID) VALUES ('Titanic', 1997, 1);
+INSERT INTO Movie (name, RELEASE_DATE, STUDIO_ID, MOVIE_RATING_ID) VALUES ('Forrest Gump', 1994, 1, 3);
+INSERT INTO Movie (name, RELEASE_DATE, STUDIO_ID, MOVIE_RATING_ID) VALUES ('The Matrix', 1999, 2, 1);
+INSERT INTO Movie (name, RELEASE_DATE, STUDIO_ID, MOVIE_RATING_ID) VALUES ('Titanic', 1997, 1, 2);
 
 -- Insert actors
 INSERT INTO Actor (name, BIRTH_YEAR) VALUES ('Tom Hanks', 1956);
@@ -32,10 +37,9 @@ INSERT INTO Review (text, reviewer, movie_id) VALUES ('An absolute classic!', 'M
 INSERT INTO Review (text, reviewer, movie_id) VALUES ('Mind-bending and revolutionary!', 'SciFiGeek', 2);
 INSERT INTO Review (text, reviewer, movie_id) VALUES ('Epic romance, a must-watch!', 'LoveStoryFan', 3);
 
--- Insert movie ratings
-INSERT INTO MOVIE_RATING (rating, agency, movie_id) VALUES (5, 'IMDb', 1);
-INSERT INTO MOVIE_RATING (rating, agency, movie_id) VALUES (4, 'Rotten Tomatoes', 2);
-INSERT INTO MOVIE_RATING (rating, agency, movie_id) VALUES (5, 'IMDb', 3);
-
+INSERT INTO MOVIE_ACTORS (ACTORS_ID, MOVIES_ID) VALUES (1,2)
+INSERT INTO MOVIE_ACTORS (ACTORS_ID, MOVIES_ID) VALUES (1,3)
+INSERT INTO MOVIE_ACTORS (ACTORS_ID, MOVIES_ID) VALUES (2,1)
+INSERT INTO MOVIE_ACTORS (ACTORS_ID, MOVIES_ID) VALUES (2,3)
 	 */
 }
